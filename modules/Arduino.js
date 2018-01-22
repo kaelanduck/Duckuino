@@ -238,8 +238,8 @@ new Object({
     + '{\n'
     + '  // Begining the Keyboard stream\n'
     + '  Keyboard.begin();\n\n'
-    + '  // Wait 500ms\n'
-    + '  delay(500);\n'
+    + '  // Wait 1000ms\n'
+    + '  delay(1000);\n'
     + '\n'
     + compiledCode
     + '  // Ending stream\n'
