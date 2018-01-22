@@ -178,7 +178,7 @@ class Duckuino {
             strokeArray.push(this.loadedModule.comboMap[argList[y].toUpperCase()]);
           } else if(this.loadedModule.keyMap[argList[y]] !== undefined && y != 0) {
             /* Push key to Array */
-            strokeArray.push('"' + this.loadedModule.keyMap[argList[y]] + '"');
+            strokeArray.push('\'' + this.loadedModule.keyMap[argList[y]] + '\'');
           } else {
             /* If command unknown, throw error */
             this.errorList.push({
