@@ -115,7 +115,7 @@ class Duckuino {
       var argOne = argList[0];
 
       /* Parse commands */
-      if (this.loadedModule.functionMap[argOne] !== undefined) {
+      if (this.loadedModule.functionMap[argOne.toUpperCase()] !== undefined) {
         var µ = new Object({
           keyMap: this.loadedModule.keyMap,
           /**
@@ -161,7 +161,7 @@ class Duckuino {
         });
 
         /* Execute the function and add the returned string to the current string */
-        lineStr += this.loadedModule.functionMap[argOne](argList, µ);
+        lineStr += this.loadedModule.functionMap[argOne.toUpperCase()](argList, µ);
 
         /* Post process the line */
         lineStr = this.loadedModule.postLine(lineStr, µ);
@@ -170,12 +170,12 @@ class Duckuino {
 
         for(var y = 0; y < argList.length; y++) {
 
-          if(this.loadedModule.commandMap[argList[y]] !== undefined) {
+          if(this.loadedModule.commandMap[argList[y].toUpperCase()] !== undefined) {
             /* Push key to Array */
-            strokeArray.push(this.loadedModule.commandMap[argList[y]]);
-          } else if(this.loadedModule.comboMap[argList[y]] !== undefined) {
+            strokeArray.push(this.loadedModule.commandMap[argList[y].toUpperCase()]);
+          } else if(this.loadedModule.comboMap[argList[y].toUpperCase()] !== undefined) {
             /* Push key to Array */
-            strokeArray.push(this.loadedModule.comboMap[argList[y]]);
+            strokeArray.push(this.loadedModule.comboMap[argList[y].toUpperCase()]);
           } else if(this.loadedModule.keyMap[argList[y]] !== undefined && y != 0) {
             /* Push key to Array */
             strokeArray.push('"' + this.loadedModule.keyMap[argList[y]] + '"');
