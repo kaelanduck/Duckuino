@@ -15,6 +15,13 @@ new Object({
       return '  // ' + argList.join(' ') + '\n';
     },
 
+    '//': function(argList, µ) {
+      argList.shift();
+
+      µ.setData('nodelay', true);
+      return '  // ' + argList.join(' ') + '\n';
+    },
+
     TYPE: function(argList, µ) {
       argList.shift();
 
@@ -47,6 +54,16 @@ new Object({
       if(textString !== '') {
         return '  Keyboard.print(F("' + textString + '"));\n\n';
       }
+    },
+
+    CODE: function(argList, u) {
+      argList.shift();
+      u.setData('nodelay', true);
+
+      var textString = argList.join(' ');
+
+      return '  ' + textString + '\n';
+
     },
 
     DELAY: function(argList, µ) {
